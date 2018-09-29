@@ -45,7 +45,6 @@ class MycroftinatorSkill(MycroftSkill):
         #while loop that goes through each question.
         while data:
             ansInput = ansToNumber[ansInput]
-            print ""
             #if an answer is detected, print the answer and wait for user to respond
             if getResponse(nextStep(ansInput, step))['answer']:
                 self.speak_dialog("Your character is")
@@ -54,7 +53,6 @@ class MycroftinatorSkill(MycroftSkill):
                     break
                 else:
                     progThres += 10
-                    print ""
                     ansInput = self.get_response(getResponse(nextStep(ansInput, step))['question'])
             else:
                 ansInput = self.get_response(getResponse(nextStep(ansInput, step))['question'])
