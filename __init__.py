@@ -106,7 +106,7 @@ class MycroftinatorSkill(MycroftSkill):
             #if an answer is detected, print the answer and wait for user to respond
             if getResponse(nextStep(ansInput, self.step))['answer']:
                 self.speak_dialog("Your character is")
-                confirm = self.ask_yesno(dialog=getResponse(nextStep(ansInput, self.step))["answer"])
+                confirm = self.get_response(dialog=getResponse(nextStep(ansInput, self.step))["answer"])
                 if confirm == "yes":
                     break
                 else:
