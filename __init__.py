@@ -113,7 +113,7 @@ class MycroftinatorSkill(MycroftSkill):
                     progThres += 10
                     ansInput = self.get_response(dialog=getResponse(nextStep(ansInput, self.step))["question"])
             else:
-                ansInput = self.get_response(dialog=getResponse(nextStep(ansInput, self.step))["answer"])
+                ansInput = self.get_response(dialog=getResponse(nextStep(ansInput, self.step))["question"])
             self.step += 1
 
     # The "stop" method defines what Mycroft does when told to stop during
