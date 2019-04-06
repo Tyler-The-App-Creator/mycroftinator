@@ -98,6 +98,7 @@ class MycroftinatorSkill(MycroftSkill):
 
     @intent_handler(IntentBuilder("").require("Play").require("Akinator"))
     def handle_play_akinator(self, message):
+	self.speak_dialog("THink of a character"+nextStep(ansInput, step))
         ansInput = self.get_response(getResponse(data)['question'])
         #while loop that goes through each question.
         while data:
@@ -112,6 +113,7 @@ class MycroftinatorSkill(MycroftSkill):
                     progThres += 10
                     ansInput = self.get_response(getResponse(nextStep(ansInput, step))['question'])
             else:
+		self.speak_dialog(nextStep(ansInput, step))
                 ansInput = self.get_response(getResponse(nextStep(ansInput, step))['question'])
             self.step += 1
 
