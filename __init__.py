@@ -7,7 +7,6 @@
 from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill, intent_handler
 from mycroft.util.log import LOG
-from akinatorUtilities import getResponse, nextStep, ansToNumber, data
 
 #Below is the code for accessing Akinator API
 #Code is copied from my python-akinator repository located here:
