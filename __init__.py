@@ -100,22 +100,22 @@ class MycroftinatorSkill(MycroftSkill):
     def handle_play_akinator(self, message):
         self.speak_dialog("Think of a character")
         ansInput = self.get_response(getResponse(data)['question'])
-        self.speak_dialog(nextStep(ansInput, step))
+        self.speak_dialog(nextStep(ansInput, self.step))
         #while loop that goes through each question.
         while data:
             ansInput = ansToNumber[ansInput]
             #if an answer is detected, print the answer and wait for user to respond
-            if getResponse(nextStep(ansInput, step))['answer']:
+            if getResponse(nextStep(ansInput, self.step))['answer']:
                 self.speak_dialog("Your character is")
-                confirm = self.ask_yesno(getResponse(nextStep(ansInput, step))['answer'])
+                confirm = self.ask_yesno(getResponse(nextStep(ansInput, self.step))['answer'])
                 if confirm == "yes":
                     break
                 else:
                     progThres += 10
-                    ansInput = self.get_response(getResponse(nextStep(ansInput, step))['question'])
+                    ansInput = self.get_response(getResponse(nextStep(ansInput, self.step))['question'])
             else:
-                self.speak_dialog(nextStep(ansInput, step))
-                ansInput = self.get_response(getResponse(nextStep(ansInput, step))['question'])
+                self.speak_dialog(nextStep(ansInput, self.step))
+                ansInput = self.get_response(getResponse(nextStep(ansInput, self.step))['question'])
             self.step += 1
 
     # The "stop" method defines what Mycroft does when told to stop during
