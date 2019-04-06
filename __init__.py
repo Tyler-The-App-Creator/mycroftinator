@@ -98,9 +98,9 @@ class MycroftinatorSkill(MycroftSkill):
 
     @intent_handler(IntentBuilder("").require("Play").require("Akinator"))
     def handle_play_akinator(self, message):
-		self.speak_dialog("Think of a character")
+        self.speak_dialog("Think of a character")
         ansInput = self.get_response(getResponse(data)['question'])
-		self.speak_dialog(nextStep(ansInput, step))
+        self.speak_dialog(nextStep(ansInput, step))
         #while loop that goes through each question.
         while data:
             ansInput = ansToNumber[ansInput]
