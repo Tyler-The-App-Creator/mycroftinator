@@ -59,7 +59,7 @@ ansToNumber = {
 	"n":'1',
 	"no":'1',
 	"idk":"2",
-	"i dont know":"2",
+	"i don't know":"2",
 	"prob":"3",
 	"probably":"3",
 	"prob not":"4",
@@ -74,27 +74,6 @@ class MycroftinatorSkill(MycroftSkill):
     # The constructor of the skill, which calls MycroftSkill's constructor
     def __init__(self):
         super(MycroftinatorSkill, self).__init__(name="MycroftinatorSkill")
-        
-        # Initialize working variables used within the skill.
-        self.step = 0
-
-    # The "handle_xxxx_intent" function is triggered by Mycroft when the
-    # skill's intent is matched.  The intent is defined by the IntentBuilder()
-    # pieces, and is triggered when the user's utterance matches the pattern
-    # defined by the keywords.  In this case, the match occurs when one word
-    # is found from each of the files:
-    #    vocab/en-us/Hello.voc
-    #    vocab/en-us/World.voc
-    # In this example that means it would match on utterances like:
-    #   'Hello world'
-    #   'Howdy you great big world'
-    #   'Greetings planet earth'
-    @intent_handler(IntentBuilder("").require("Hello").require("World"))
-    def handle_hello_world_intent(self, message):
-        # In this case, respond by simply speaking a canned response.
-        # Mycroft will randomly speak one of the lines from the file
-        #    dialogs/en-us/hello.world.dialog
-        self.speak_dialog("hello.world")
 
     @intent_handler(IntentBuilder("").require("Play").require("Akinator"))
     def handle_play_akinator(self, message):
@@ -122,8 +101,8 @@ class MycroftinatorSkill(MycroftSkill):
     # need to implement stop, you should return True to indicate you handled
     # it.
     #
-    # def stop(self):
-    #    return False
+    def stop(self):
+        return False
 
 # The "create_skill()" method is used to create an instance of the skill.
 # Note that it's outside the class itself.
